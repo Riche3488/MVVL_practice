@@ -1,6 +1,8 @@
 package com.udacity.shoestore.screen.shoeList
 
+import android.annotation.SuppressLint
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -28,6 +30,7 @@ class ShoeDetailFragment : Fragment() {
     val model: ShoeListViewModel by viewModels()
     val mutableList = mutableListOf<Shoe>()
 
+    @SuppressLint("LogNotTimber")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?): View? {
@@ -42,6 +45,7 @@ class ShoeDetailFragment : Fragment() {
             mutableList.add(Shoe("name",255.0,"company"
                 ,"description","img source"))
             model.shoes_list.postValue(mutableList)
+            Log.d("ShoeDetail", ""+ mutableList)
 
             view.findNavController().navigate(R.id.action_shoeDetailFragment_to_shoeListFragment)
         }
