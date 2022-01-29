@@ -45,16 +45,22 @@ class ShoeDetailFragment : Fragment() {
             mutableList.add(Shoe("name",255.0,"company"
                 ,"description","img source"))
             model.shoes_list.postValue(mutableList)
-            Log.d("ShoeDetail", ""+ mutableList)
+            Log.d("ShoeDetailFragment", ""+ model.shoes_list.toString())
 
             view.findNavController().navigate(R.id.action_shoeDetailFragment_to_shoeListFragment)
         }
         return binding.root
     }
 
+    override fun onStop() {
+        super.onStop()
+        Log.i("ShoeDetailFragment", "onStopCalled")
+    }
+
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+        Log.i("ShoeDetailFragment", "onDestroyCalled")
     }
 
 }
