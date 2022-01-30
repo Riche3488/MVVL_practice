@@ -42,13 +42,17 @@ class ShoeDetailFragment : Fragment() {
 
 
         binding.saveBtn.setOnClickListener { view ->
-            mutableList = if (model.shoes_list.value != null) model.shoes_list.value!!
-            else mutableListOf<Shoe>(Shoe("noData",0.0,"noData"
-                ,"noData","noData"))
+            if (model.shoes_list.value != null) {
+                mutableList = model.shoes_list.value!!
+                mutableList.add(Shoe("name",255.0,"company"
+                    ,"description","img source"))
+                model.shoes_list.value = mutableList
+            } else{
+                mutableList = mutableListOf<Shoe>(Shoe("name",255.0,"company"
+                    ,"description","img source"))
+                model.shoes_list.value = mutableList
+            }
 
-            mutableList.add(Shoe("name",255.0,"company"
-                ,"description","img source"))
-            model.shoes_list.value = mutableList
 
             view.findNavController().navigate(R.id.action_shoeDetailFragment_to_shoeListFragment)
         }

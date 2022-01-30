@@ -64,9 +64,6 @@ class ShoeListFragment : Fragment() {
         text.text = new_shoes_item.name
         val lp = LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT)
         text.layoutParams = lp
-        Log.i("ShoeListFragment","updaeteView")
-        Log.i("ShoeListFragment",""+new_shoes_item.name)
-
         return text
     }
 
