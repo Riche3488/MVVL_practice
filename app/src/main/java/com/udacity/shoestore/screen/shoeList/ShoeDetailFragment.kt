@@ -29,7 +29,8 @@ class ShoeDetailFragment : Fragment() {
     // onDestroyView.
     private val binding get() = _binding!!
     val model: ShoeListViewModel by activityViewModels()
-    val mutableList = mutableListOf<Shoe>()
+    private var  mutableList = mutableListOf<Shoe>(Shoe("noData",0.0,"noData"
+        ,"noData","noData"))
 
     @SuppressLint("LogNotTimber")
     override fun onCreateView(
@@ -40,13 +41,14 @@ class ShoeDetailFragment : Fragment() {
         binding.fragment = this
 
 
-
-
         binding.saveBtn.setOnClickListener { view ->
+            mutableList = if (model.shoes_list.value != null) model.shoes_list.value!!
+            else mutableListOf<Shoe>(Shoe("noData",0.0,"noData"
+                ,"noData","noData"))
+
             mutableList.add(Shoe("name",255.0,"company"
                 ,"description","img source"))
             model.shoes_list.value = mutableList
-            Log.d("ShoeDetailFragment", ""+ model.shoes_list.value)
 
             view.findNavController().navigate(R.id.action_shoeDetailFragment_to_shoeListFragment)
         }

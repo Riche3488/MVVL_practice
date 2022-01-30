@@ -39,8 +39,8 @@ class ShoeListFragment : Fragment() {
         }
 
         val shoeObserver = Observer<MutableList<Shoe>>{ new_shoes ->
-            //for (i: Int in 0..new_shoes.size)
-            binding.shoeListLayout.addView(updateView (new_shoes[0]))
+            for (i: Int in 0..(new_shoes.size-1))
+                binding.shoeListLayout.addView(updateView (new_shoes[i]))
         }
         model.shoes_list.observe(viewLifecycleOwner, shoeObserver)
         return binding.root
