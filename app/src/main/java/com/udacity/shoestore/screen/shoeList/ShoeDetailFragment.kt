@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
@@ -27,7 +28,7 @@ class ShoeDetailFragment : Fragment() {
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
-    val model: ShoeListViewModel by viewModels()
+    val model: ShoeListViewModel by activityViewModels()
     val mutableList = mutableListOf<Shoe>()
 
     @SuppressLint("LogNotTimber")
@@ -44,8 +45,8 @@ class ShoeDetailFragment : Fragment() {
         binding.saveBtn.setOnClickListener { view ->
             mutableList.add(Shoe("name",255.0,"company"
                 ,"description","img source"))
-            model.shoes_list.postValue(mutableList)
-            Log.d("ShoeDetailFragment", ""+ model.shoes_list.toString())
+            model.shoes_list.value = mutableList
+            Log.d("ShoeDetailFragment", ""+ model.shoes_list.value)
 
             view.findNavController().navigate(R.id.action_shoeDetailFragment_to_shoeListFragment)
         }

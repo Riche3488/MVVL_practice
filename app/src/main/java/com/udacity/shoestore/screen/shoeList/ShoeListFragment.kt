@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -24,7 +25,7 @@ class ShoeListFragment : Fragment() {
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
-    val model: ShoeListViewModel by viewModels()
+    val model: ShoeListViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -38,8 +39,8 @@ class ShoeListFragment : Fragment() {
         }
 
         val shoeObserver = Observer<MutableList<Shoe>>{ new_shoes ->
-            for (i: Int in 1..new_shoes.size)
-                updateView (new_shoes[i])
+            //for (i: Int in 0..new_shoes.size)
+            binding.shoeListLayout.addView(updateView (new_shoes[0]))
         }
         model.shoes_list.observe(viewLifecycleOwner, shoeObserver)
         return binding.root
@@ -63,6 +64,9 @@ class ShoeListFragment : Fragment() {
         text.text = new_shoes_item.name
         val lp = LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT)
         text.layoutParams = lp
+        Log.i("ShoeListFragment","updaeteView")
+        Log.i("ShoeListFragment",""+new_shoes_item.name)
+
         return text
     }
 
