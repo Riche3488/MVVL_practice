@@ -17,6 +17,7 @@ import androidx.navigation.findNavController
 import com.udacity.shoestore.R
 import com.udacity.shoestore.databinding.FragmentShoeListBinding
 import com.udacity.shoestore.models.Shoe
+import kotlinx.android.synthetic.main.item_view.view.*
 
 
 class ShoeListFragment : Fragment() {
@@ -58,11 +59,24 @@ class ShoeListFragment : Fragment() {
         _binding = null
     }
 
-    //binding.shoeListLayout.addView(createTextView())
     fun updateView(new_shoes_item: Shoe):View {
+        val inflater = LayoutInflater.from(activity)
+        val itemView = inflater.inflate(R.layout.item_view,null)
+        itemView.name_text.text = new_shoes_item.name
+        itemView.size_text.text = new_shoes_item.size.toString()
+        itemView.company_text.text = new_shoes_item.company
+        itemView.description_text.text = new_shoes_item.description
+        itemView.img_text.text = new_shoes_item.images
+        val lp = LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+
+        itemView.layoutParams = lp
+        return itemView
+    }
+    fun updateView_base(new_shoes_item: Shoe):View {
         val text = TextView(activity)
         text.text = new_shoes_item.name
         val lp = LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+
         text.layoutParams = lp
         return text
     }

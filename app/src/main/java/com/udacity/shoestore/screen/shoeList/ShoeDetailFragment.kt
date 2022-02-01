@@ -62,6 +62,7 @@ class ShoeDetailFragment : Fragment() {
         _binding = null
         Log.i("ShoeDetailFragment", "onDestroyCalled")
     }
+
     fun addShoeItem(view: View, list: MutableList<Shoe>){
         if ((binding.shoeNameEditText.text.toString() != "") &&
                 (binding.shoeSizeEditText.text.toString() != "")&&
@@ -81,7 +82,4 @@ class ShoeDetailFragment : Fragment() {
             return
         }
     }
-
-
-
 }
