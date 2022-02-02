@@ -65,10 +65,10 @@ class ShoeListFragment : Fragment() {
         itemView.name_text.text = new_shoes_item.name
         itemView.size_text.text = new_shoes_item.size.toString()
         itemView.company_text.text = new_shoes_item.company
-        itemView.description_text.text = new_shoes_item.description
-        itemView.img_text.text = new_shoes_item.images
+        //itemView.description_text.text = new_shoes_item.description
+        //itemView.img_text.text = new_shoes_item.images
         val lp = LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
-
+        lp.setMargins(0,16,0,16)
         itemView.layoutParams = lp
         return itemView
     }

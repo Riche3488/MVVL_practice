@@ -26,28 +26,33 @@ class ShoeDetailFragment : Fragment() {
 
 
     private var _binding: FragmentShoeDetailBinding? = null
+
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
     val model: ShoeListViewModel by activityViewModels()
-    private var  mutableList= mutableListOf<Shoe>()// = mutableListOf(Shoe("noData",0.0,"noData","noData","noData"))
+    private var mutableList =
+        mutableListOf<Shoe>()// = mutableListOf(Shoe("noData",0.0,"noData","noData","noData"))
 
     @SuppressLint("LogNotTimber")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?): View? {
+        savedInstanceState: Bundle?
+    ): View? {
         _binding = FragmentShoeDetailBinding.inflate(inflater, container, false)
 
         binding.fragment = this
-
 
         binding.saveBtn.setOnClickListener { view ->
             if (model.shoes_list.value != null) {
                 mutableList = model.shoes_list.value!!
                 addShoeItem(view, mutableList)
-            } else{
+            } else {
                 addShoeItem(view, mutableList)
             }
+        }
+        binding.cancelBtn.setOnClickListener { view ->
+            view.findNavController().navigate(R.id.action_shoeDetailFragment_to_shoeListFragment)
         }
         return binding.root
     }
@@ -63,22 +68,27 @@ class ShoeDetailFragment : Fragment() {
         Log.i("ShoeDetailFragment", "onDestroyCalled")
     }
 
-    fun addShoeItem(view: View, list: MutableList<Shoe>){
+    fun addShoeItem(view: View, list: MutableList<Shoe>) {
         if ((binding.shoeNameEditText.text.toString() != "") &&
-                (binding.shoeSizeEditText.text.toString() != "")&&
-            (binding.shoeCompanyEditText.text.toString() != "")&&
-            binding.shoeDescriptionEditText.text.toString() != ""&&
-            binding.shoeImgEditText.text.toString()!= ""){
-            list.add(Shoe(binding.shoeNameEditText.text.toString(),
-                binding.shoeSizeEditText.text.toString().toDouble(),
-                binding.shoeCompanyEditText.text.toString(),
-                binding.shoeDescriptionEditText.text.toString(),
-                binding.shoeImgEditText.text.toString()))
+            (binding.shoeSizeEditText.text.toString() != "") &&
+            (binding.shoeCompanyEditText.text.toString() != "") &&
+            binding.shoeDescriptionEditText.text.toString() != "" &&
+            binding.shoeImgEditText.text.toString() != ""
+        ) {
+            list.add(
+                Shoe(
+                    binding.shoeNameEditText.text.toString(),
+                    binding.shoeSizeEditText.text.toString().toDouble(),
+                    binding.shoeCompanyEditText.text.toString(),
+                    binding.shoeDescriptionEditText.text.toString(),
+                    binding.shoeImgEditText.text.toString()
+                )
+            )
 
             model.shoes_list.value = list
             view.findNavController().navigate(R.id.action_shoeDetailFragment_to_shoeListFragment)
-        }else{
-            Toast.makeText(context,"Fill the text",Toast.LENGTH_LONG).show()
+        } else {
+            Toast.makeText(context, "Fill the text", Toast.LENGTH_LONG).show()
             return
         }
     }

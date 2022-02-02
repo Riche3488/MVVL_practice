@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
         <variable
             name="fragment"
             type="com.udacity.shoestore.screen.shoeList.ShoeListFragment" />
@@ -13,16 +12,16 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@android:color/holo_orange_light"
         tools:context=".screen.shoeList.ShoeListFragment">
-
 
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="16dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginBottom="24dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -31,19 +30,74 @@
             app:layout_constraintVertical_bias="0.0">
 
             <LinearLayout
-                android:id="@+id/shoe_list_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/shoe_text"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/back_shape_item_view"
+                        android:gravity="center_horizontal|center_vertical"
+                        android:text="Shoe"
+                        app:layout_constraintEnd_toStartOf="@id/size_text"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/size_text"
+
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/back_shape_item_view"
+                        android:gravity="center_horizontal|center_vertical"
+
+                        android:text="Size"
+                        app:layout_constraintEnd_toStartOf="@+id/company_text"
+                        app:layout_constraintStart_toEndOf="@id/shoe_text"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                    </TextView>
+
+                    <TextView
+                        android:id="@+id/company_text"
+
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/back_shape_item_view"
+                        android:gravity="center_horizontal|center_vertical"
+
+                        android:text="Company"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/size_text"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                    </TextView>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <LinearLayout
+                    android:id="@+id/shoe_list_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                </LinearLayout>
 
                 <com.google.android.material.floatingactionbutton.FloatingActionButton
                     android:id="@+id/floatingActionButton"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:layout_marginTop="24dp"
                     android:clickable="true"
                     android:src="?android:attr/actionModeWebSearchDrawable" />
-
             </LinearLayout>
         </ScrollView>
     </androidx.constraintlayout.widget.ConstraintLayout>

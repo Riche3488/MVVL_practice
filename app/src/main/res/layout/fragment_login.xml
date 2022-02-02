@@ -1,83 +1,108 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
     <data>
+
         <variable
             name="fragment"
             type="com.udacity.shoestore.screen.LoginFragment" />
     </data>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".screen.LoginFragment"
-    android:background="@color/colorPrimary">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/holo_orange_light"
+        tools:context=".screen.LoginFragment">
 
 
-    <TextView
-        android:id="@+id/email_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/e_mail"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.13"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.13" />
+        <TextView
+            android:id="@+id/email_text"
+            android:layout_width="0dp"
+            android:layout_height="36dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="56dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="@string/e_mail"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/email_edit"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/pw_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text="@string/password"
-        android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="@+id/email_text"
-        app:layout_constraintTop_toBottomOf="@+id/email_text" />
+        <TextView
+            android:id="@+id/pw_text"
+            android:layout_width="0dp"
+            android:layout_height="36dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="24dp"
+            android:gravity="center_horizontal|center_vertical"
 
-    <EditText
-        android:id="@+id/password_edit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:ems="10"
-        android:hint="Type your password"
-        android:inputType="textPassword"
-        android:textSize="20sp"
-        app:layout_constraintBaseline_toBaselineOf="@+id/pw_text"
-        app:layout_constraintStart_toEndOf="@+id/pw_text" />
+            android:text="@string/password"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@id/password_edit"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/email_text" />
 
-    <Button
-        android:id="@+id/join_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:background="@drawable/ic_add"
-        android:text="@string/join"
-        app:layout_constraintStart_toStartOf="@+id/pw_text"
-        app:layout_constraintTop_toBottomOf="@+id/password_edit" />
+        <EditText
+            android:id="@+id/password_edit"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="24dp"
+            android:ems="10"
+            android:gravity="center_horizontal|center_vertical"
 
-    <Button
-        android:id="@+id/login_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:text="@string/log_in"
-        android:onClick="@{(v)->fragment.onLogInClick(v)}"
-        app:layout_constraintStart_toEndOf="@+id/join_btn"
-        app:layout_constraintTop_toTopOf="@+id/join_btn" />
+            android:hint="Type your password"
+            android:inputType="textPassword"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/pw_text"
+            app:layout_constraintTop_toTopOf="@+id/pw_text" />
 
-    <EditText
-        android:id="@+id/email_edit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="kwl@google.com"
-        android:inputType="textEmailAddress"
-        android:textSize="20sp"
-        app:layout_constraintBaseline_toBaselineOf="@+id/email_text"
-        app:layout_constraintStart_toStartOf="@+id/password_edit" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <Button
+            android:id="@+id/join_btn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/back_shape"
+            android:onClick="@{(v)->fragment.onLogInClick(v)}"
+            android:text="@string/join"
+            app:layout_constraintEnd_toStartOf="@id/login_btn"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/pw_text" />
+
+        <Button
+            android:id="@+id/login_btn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="24dp"
+
+            android:background="@drawable/back_shape"
+            android:onClick="@{(v)->fragment.onLogInClick(v)}"
+            android:text="@string/log_in"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/join_btn"
+            app:layout_constraintTop_toTopOf="@+id/join_btn" />
+
+        <EditText
+            android:id="@+id/email_edit"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="24dp"
+            android:ems="10"
+            android:gravity="center_horizontal|center_vertical"
+
+            android:hint="kwl@google.com"
+            android:inputType="textEmailAddress"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/email_text"
+            app:layout_constraintTop_toTopOf="@+id/email_text" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -4,32 +4,35 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="16dp"
-    android:background="@color/colorGrey">
+    android:layout_margin="16dp">
 
     <TextView
         android:id="@+id/name_text"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="0dp"
+        android:background="@drawable/back_shape"
         android:gravity="center_horizontal|center_vertical"
         android:text="shoeName"
 
-        android:textSize="24sp"
+        android:textSize="14sp"
         app:layout_constraintEnd_toStartOf="@id/size_text"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+
     <TextView
         android:id="@+id/size_text"
         android:layout_width="0dp"
+
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="0dp"
+        android:background="@drawable/back_shape"
         android:gravity="center_horizontal|center_vertical"
         android:text="shoeSize"
 
-        android:textSize="24sp"
+        android:textSize="14sp"
 
         app:layout_constraintEnd_toStartOf="@id/company_text"
         app:layout_constraintStart_toEndOf="@id/name_text"
@@ -39,44 +42,19 @@
         android:id="@+id/company_text"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginTop="0dp"
+
+        android:layout_marginEnd="0dp"
+        android:layout_marginBottom="0dp"
+        android:background="@drawable/back_shape"
         android:gravity="center_horizontal|center_vertical"
         android:text="company"
 
-        android:textSize="24sp"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/size_text"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/description_text"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="16dp"
-        android:gravity="center_horizontal|center_vertical"
-        android:text="description"
-
-
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/name_text"
-        app:layout_constraintStart_toStartOf="@+id/name_text"
-        app:layout_constraintTop_toBottomOf="@id/name_text"
-        app:layout_constraintVertical_bias="1.0" />
-
-    <TextView
-        android:id="@+id/img_text"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:gravity="center_horizontal|center_vertical"
-
-        android:text="imgtext"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="@+id/size_text"
-        app:layout_constraintStart_toEndOf="@+id/name_text"
-        app:layout_constraintTop_toTopOf="@+id/description_text" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
