@@ -32,7 +32,7 @@ class ShoeDetailFragment : Fragment() {
     private val binding get() = _binding!!
     val model: ShoeListViewModel by activityViewModels()
     private var mutableList =
-        mutableListOf<Shoe>()// = mutableListOf(Shoe("noData",0.0,"noData","noData","noData"))
+        mutableListOf<Shoe>()
 
     @SuppressLint("LogNotTimber")
     override fun onCreateView(
@@ -42,7 +42,7 @@ class ShoeDetailFragment : Fragment() {
         _binding = FragmentShoeDetailBinding.inflate(inflater, container, false)
 
         binding.fragment = this
-
+        binding.shoe = Shoe("ShoeName", 255.0, "Nike", "Description","Image Souce")
         binding.saveBtn.setOnClickListener { view ->
             if (model.shoes_list.value != null) {
                 mutableList = model.shoes_list.value!!
@@ -92,4 +92,5 @@ class ShoeDetailFragment : Fragment() {
             return
         }
     }
+
 }

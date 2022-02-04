@@ -23,6 +23,9 @@
             android:id="@+id/action_welcomeFragment_to_instructionFragment"
             app:destination="@id/instructionFragment"
             app:popUpToInclusive="false" />
+        <action
+            android:id="@+id/action_welcomeFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
     </fragment>
     <fragment
         android:id="@+id/shoeListFragment"
@@ -33,6 +36,9 @@
             android:id="@+id/action_shoeListFragment_to_shoeDetailFragment"
             app:destination="@id/shoeDetailFragment"
             app:popUpToInclusive="false" />
+        <action
+            android:id="@+id/action_shoeListFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
     </fragment>
     <fragment
         android:id="@+id/instructionFragment"
